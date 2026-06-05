@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dessert Deagle — Premium Auto Detailing</title>
+  <meta name="description" content="Dessert Deagle offers premium auto detailing, interior cleaning, paint correction and ceramic coating services with a luxury finish.">
+  <meta name="keywords" content="auto detailing, car detailing, ceramic coating, paint correction, interior cleaning, Riga, Latvia">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dd-black':   '#070707',
+            'dd-graphite':'#161616',
+            'dd-charcoal':'#242424',
+            'dd-gold':    '#C89B5A',
+            'dd-sand':    '#E6D3B1',
+            'dd-silver':  '#B8B8B8',
+          },
+          fontFamily: {
+            display: ['Oswald', 'sans-serif'],
+            body:    ['Inter',  'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #070707;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #070707; }
+    ::-webkit-scrollbar-thumb { background: #C89B5A; border-radius: 3px; }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9000;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Gold gradient text */
+    .gold-text {
+      background: linear-gradient(135deg, #C89B5A 0%, #E6D3B1 50%, #C89B5A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Primary gold button */
+    .btn-gold {
+      background: linear-gradient(135deg, #C89B5A 0%, #E6D3B1 50%, #C89B5A 100%);
+      background-size: 200% auto;
+      color: #070707;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      transition: background-position 0.35s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-gold:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(200,155,90,0.55), 0 10px 25px rgba(0,0,0,0.45);
+    }
+    .btn-gold:active { transform: translateY(0); }
+
+    /* Outline gold button */
+    .btn-outline {
+      border: 1.5px solid #C89B5A;
+      color: #C89B5A;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      transition: background 0.3s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: rgba(200,155,90,0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(200,155,90,0.3);
+    }
+    .btn-outline:active { transform: translateY(0); }
+
+    /* Nav underline */
+    .nav-link {
+      position: relative;
+      color: #B8B8B8;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: #C89B5A;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #C89B5A; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Gold rule */
+    .gold-line {
+      width: 56px; height: 2px;
+      background: linear-gradient(90deg, #C89B5A, #E6D3B1);
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .service-card {
+      background: #161616;
+      border: 1px solid #242424;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(200,155,90,0.4);
+      box-shadow: 0 0 45px rgba(200,155,90,0.1), 0 22px 45px rgba(0,0,0,0.55);
+    }
+
+    .pkg-card {
+      background: #161616;
+      border: 1px solid #242424;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .pkg-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(200,155,90,0.5);
+      box-shadow: 0 0 55px rgba(200,155,90,0.14), 0 28px 55px rgba(0,0,0,0.6);
+    }
+    .pkg-card.featured {
+      border-color: rgba(200,155,90,0.45);
+      background: linear-gradient(150deg, #1c1c1c 0%, #161616 100%);
+      box-shadow: 0 0 45px rgba(200,155,90,0.12);
+    }
+
+    .review-card {
+      background: #161616;
+      border: 1px solid #242424;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,155,90,0.3);
+    }
+
+    /* Gallery */
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+      position: relative;
+    }
+    .gallery-item img { transition: transform 0.5s ease; display: block; width: 100%; height: 100%; object-fit: cover; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7,7,7,0.55) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* Process steps */
+    .process-step { transition: transform 0.3s ease; }
+    .process-step:hover { transform: translateY(-4px); }
+
+    .step-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, rgba(200,155,90,0.28), rgba(230,211,177,0.08));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Form */
+    .form-input {
+      background: #111;
+      border: 1px solid #2e2e2e;
+      color: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: #C89B5A;
+      box-shadow: 0 0 0 3px rgba(200,155,90,0.1);
+    }
+    .form-input::placeholder { color: #444; }
+    select.form-input option { background: #111; }
+
+    /* Sticky header */
+    #header { transition: background 0.35s, border-color 0.35s, box-shadow 0.35s; }
+    #header.scrolled {
+      background: rgba(7,7,7,0.96) !important;
+      backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(200,155,90,0.14);
+      box-shadow: 0 4px 35px rgba(0,0,0,0.55);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* Mobile menu */
+    #mob-menu { display: none; }
+    #mob-menu.open { display: block; }
+
+    /* Section backgrounds */
+    .bg-alt {
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(200,155,90,0.04) 0%, transparent 50%),
+        #0d0d0d;
+    }
+    .bg-hero {
+      background:
+        radial-gradient(ellipse at 75% 55%, rgba(200,155,90,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 85%, rgba(200,155,90,0.04) 0%, transparent 45%),
+        #070707;
+    }
+  </style>
+</head>
+
+<body class="bg-dd-black font-body">
+
+<!-- ====================================================
+     HEADER
+===================================================== -->
+<header id="header" class="fixed top-0 left-0 right-0 z-50 py-4 bg-transparent">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#home" class="flex items-center gap-3 group select-none">
+      <div class="w-9 h-9 rounded-full border border-dd-gold/55 flex items-center justify-center shrink-0">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 7v10l8 5 8-5V7z" stroke="#C89B5A" stroke-width="1.5"/>
+          <path d="M12 2v20M4 7l8 5 8-5" stroke="#C89B5A" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <span class="font-display font-bold text-xl tracking-widest text-white group-hover:text-dd-gold transition-colors duration-200">
+        DESSERT <span class="text-dd-gold">DEAGLE</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="#home"     class="nav-link">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#packages" class="nav-link">Packages</a>
+      <a href="#gallery"  class="nav-link">Gallery</a>
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#contact"  class="nav-link">Contact</a>
+    </nav>
+
+    <!-- CTA + hamburger -->
+    <div class="flex items-center gap-4">
+      <a href="#booking" class="hidden sm:inline-flex btn-gold px-5 py-2.5 rounded-full text-sm uppercase tracking-widest">
+        Book Detailing
+      </a>
+      <button id="ham" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span id="hb1" class="w-6 h-0.5 bg-white block transition-all duration-300"></span>
+        <span id="hb2" class="w-6 h-0.5 bg-white block transition-all duration-300"></span>
+        <span id="hb3" class="w-4 h-0.5 bg-dd-gold block transition-all duration-300"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mob-menu" class="lg:hidden bg-dd-graphite/98 backdrop-blur-2xl border-t border-dd-gold/10 mt-4">
+    <nav class="flex flex-col px-6 py-4 gap-1">
+      <a href="#home"     class="mob-link py-3 text-dd-silver hover:text-dd-gold transition-colors border-b border-white/5 text-sm font-medium">Home</a>
+      <a href="#services" class="mob-link py-3 text-dd-silver hover:text-dd-gold transition-colors border-b border-white/5 text-sm font-medium">Services</a>
+      <a href="#packages" class="mob-link py-3 text-dd-silver hover:text-dd-gold transition-colors border-b border-white/5 text-sm font-medium">Packages</a>
+      <a href="#gallery"  class="mob-link py-3 text-dd-silver hover:text-dd-gold transition-colors border-b border-white/5 text-sm font-medium">Gallery</a>
+      <a href="#about"    class="mob-link py-3 text-dd-silver hover:text-dd-gold transition-colors border-b border-white/5 text-sm font-medium">About</a>
+      <a href="#contact"  class="mob-link py-3 text-dd-silver hover:text-dd-gold transition-colors text-sm font-medium">Contact</a>
+      <a href="#booking"  class="mob-link mt-4 btn-gold text-center py-3 rounded-full text-sm uppercase tracking-widest">Book Detailing</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ====================================================
+     HERO
+===================================================== -->
+<section id="home" class="bg-hero min-h-screen flex items-center relative overflow-hidden pt-20">
+
+  <!-- BG image -->
+  <div class="absolute inset-0 z-0">
+    <!-- Replace src with your hero car photo -->
+    <img src="https://placehold.co/1920x1080/090909/1a1a1a?text=HERO+CAR+PHOTO"
+         alt="Premium auto detailing"
+         class="w-full h-full object-cover opacity-25"
+         data-replace="hero-bg">
+    <div class="absolute inset-0" style="background:linear-gradient(110deg,#070707 42%,rgba(7,7,7,0.35) 100%);"></div>
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse at 80% 50%,rgba(200,155,90,0.07) 0%,transparent 58%);"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center py-24">
+
+    <!-- Left: copy -->
+    <div>
+      <div class="inline-flex items-center gap-2.5 bg-dd-gold/10 border border-dd-gold/20 rounded-full px-4 py-1.5 mb-8 reveal">
+        <span class="w-1.5 h-1.5 rounded-full bg-dd-gold animate-pulse"></span>
+        <span class="text-dd-gold text-xs font-semibold uppercase tracking-widest">Premium Auto Detailing</span>
+      </div>
+
+      <h1 class="font-display font-bold leading-none tracking-tight mb-6 reveal d1"
+          style="font-size:clamp(2.8rem,5.5vw,4.8rem);">
+        Premium Auto Detailing<br>
+        for Cars That<br>
+        <span class="gold-text">Deserve Attention</span>
+      </h1>
+
+      <p class="text-dd-silver text-lg mb-3 reveal d2 max-w-lg" style="line-height:1.7;">
+        Deep cleaning, paint protection and interior care with a luxury finish.
+      </p>
+      <p class="text-dd-silver/60 text-base mb-10 reveal d2 max-w-lg" style="line-height:1.7;">
+        Dessert Deagle brings your car back to its best condition with professional detailing, premium products and attention to every detail.
+      </p>
+
+      <div class="flex flex-wrap gap-4 reveal d3">
+        <a href="#packages" class="btn-gold px-8 py-4 rounded-full text-sm uppercase tracking-widest">View Packages</a>
+        <a href="#booking"  class="btn-outline px-8 py-4 rounded-full text-sm uppercase tracking-widest">Book Now</a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="flex gap-10 mt-14 reveal d4">
+        <div>
+          <div class="font-display text-3xl font-bold gold-text">500+</div>
+          <div class="text-dd-silver/50 text-xs uppercase tracking-wider mt-1">Cars Detailed</div>
+        </div>
+        <div class="w-px bg-white/10"></div>
+        <div>
+          <div class="font-display text-3xl font-bold gold-text">5.0★</div>
+          <div class="text-dd-silver/50 text-xs uppercase tracking-wider mt-1">Average Rating</div>
+        </div>
+        <div class="w-px bg-white/10"></div>
+        <div>
+          <div class="font-display text-3xl font-bold gold-text">6+</div>
+          <div class="text-dd-silver/50 text-xs uppercase tracking-wider mt-1">Years Experience</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: feature image -->
+    <div class="hidden lg:block relative reveal d2">
+      <div class="relative rounded-2xl overflow-hidden"
+           style="aspect-ratio:4/3;box-shadow:0 0 90px rgba(200,155,90,0.1),0 45px 90px rgba(0,0,0,0.7);">
+        <!-- Replace with actual car photo -->
+        <img src="https://placehold.co/800x600/111111/C89B5A?text=LUXURY+CAR"
+             alt="Luxury car detailing"
+             class="w-full h-full object-cover"
+             data-replace="hero-car">
+        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,7,7,0.45) 0%,transparent 55%);"></div>
+        <div class="absolute inset-0 rounded-2xl" style="border:1px solid rgba(200,155,90,0.18);"></div>
+      </div>
+      <!-- Floating badge -->
+      <div class="absolute -bottom-5 -left-5 bg-dd-graphite border border-dd-gold/30 rounded-xl px-5 py-3 flex items-center gap-3"
+           style="backdrop-filter:blur(12px);">
+        <div class="w-10 h-10 rounded-full bg-dd-gold/15 flex items-center justify-center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#C89B5A">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-white font-semibold text-sm">5.0 Rating</div>
+          <div class="text-dd-silver/50 text-xs">500+ satisfied clients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-35 pointer-events-none">
+    <span class="text-xs text-dd-silver uppercase tracking-widest">Scroll</span>
+    <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+      <path d="M7 1v16M1 11l6 6 6-6" stroke="#C89B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     ABOUT
+===================================================== -->
+<section id="about" class="py-24 lg:py-32 bg-alt">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Image -->
+      <div class="relative reveal order-2 lg:order-1">
+        <div class="rounded-2xl overflow-hidden"
+             style="aspect-ratio:5/4;box-shadow:0 0 65px rgba(200,155,90,0.07),0 35px 65px rgba(0,0,0,0.6);">
+          <img src="https://placehold.co/700x560/111111/C89B5A?text=DETAILING+PROCESS"
+               alt="Detailing process"
+               class="w-full h-full object-cover"
+               data-replace="about-img">
+          <div class="absolute inset-0" style="background:linear-gradient(to bottom right,transparent 50%,rgba(7,7,7,0.35));"></div>
+        </div>
+        <!-- Corner bracket -->
+        <div class="absolute top-5 left-5 pointer-events-none">
+          <div class="w-10 h-0.5 bg-dd-gold/35"></div>
+          <div class="w-0.5 h-10 bg-dd-gold/35"></div>
+        </div>
+        <div class="absolute bottom-5 right-5 pointer-events-none">
+          <div class="w-10 h-0.5 bg-dd-gold/35 ml-auto"></div>
+          <div class="w-0.5 h-10 bg-dd-gold/35 ml-auto"></div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="order-1 lg:order-2 reveal d1">
+        <div class="gold-line mb-6"></div>
+        <h2 class="font-display font-bold text-4xl lg:text-5xl mb-6 leading-tight" style="letter-spacing:-0.02em;">
+          Your Car, Detailed<br><span class="gold-text">Like It Matters</span>
+        </h2>
+        <p class="text-dd-silver text-lg mb-8" style="line-height:1.7;">
+          At Dessert Deagle, we focus on precision, protection and a flawless finish. From deep interior cleaning to exterior polishing and ceramic protection, every detail is handled with care.
+        </p>
+
+        <div class="space-y-5">
+          <!-- Benefit 1 -->
+          <div class="flex items-start gap-4 reveal d1">
+            <div class="w-8 h-8 rounded-full bg-dd-gold/12 border border-dd-gold/28 flex items-center justify-center shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M10 3L5 9.5 2 6.5" stroke="#C89B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white text-sm mb-0.5">Premium Detailing Products</div>
+              <div class="text-dd-silver/60 text-sm" style="line-height:1.6;">Professional-grade products for lasting results.</div>
+            </div>
+          </div>
+          <!-- Benefit 2 -->
+          <div class="flex items-start gap-4 reveal d2">
+            <div class="w-8 h-8 rounded-full bg-dd-gold/12 border border-dd-gold/28 flex items-center justify-center shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M10 3L5 9.5 2 6.5" stroke="#C89B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white text-sm mb-0.5">Interior &amp; Exterior Specialists</div>
+              <div class="text-dd-silver/60 text-sm" style="line-height:1.6;">Expert care for every surface, inside and out.</div>
+            </div>
+          </div>
+          <!-- Benefit 3 -->
+          <div class="flex items-start gap-4 reveal d3">
+            <div class="w-8 h-8 rounded-full bg-dd-gold/12 border border-dd-gold/28 flex items-center justify-center shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M10 3L5 9.5 2 6.5" stroke="#C89B5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white text-sm mb-0.5">Long-Lasting Protection</div>
+              <div class="text-dd-silver/60 text-sm" style="line-height:1.6;">Treatments built to keep your car protected for months.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     SERVICES
+===================================================== -->
+<section id="services" class="py-24 lg:py-32 bg-dd-black">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        Our <span class="gold-text">Services</span>
+      </h2>
+      <p class="text-dd-silver max-w-sm mx-auto" style="line-height:1.7;">Professional care for every part of your car.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Interior -->
+      <div class="service-card rounded-2xl p-7 reveal">
+        <div class="w-11 h-11 rounded-xl bg-dd-gold/10 border border-dd-gold/18 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9zM3 9V7a2 2 0 012-2h14a2 2 0 012 2v2"/>
+            <path d="M9 21v-6h6v6"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-white mb-3 tracking-wide">Interior Detailing</h3>
+        <p class="text-dd-silver/65 text-sm mb-5" style="line-height:1.7;">Deep vacuuming, stain removal, plastic care, leather treatment and odor refresh.</p>
+        <div class="text-dd-gold font-display font-bold text-2xl">From €89</div>
+      </div>
+
+      <!-- Exterior -->
+      <div class="service-card rounded-2xl p-7 reveal d1">
+        <div class="w-11 h-11 rounded-xl bg-dd-gold/10 border border-dd-gold/18 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-white mb-3 tracking-wide">Exterior Detailing</h3>
+        <p class="text-dd-silver/65 text-sm mb-5" style="line-height:1.7;">Hand wash, decontamination, polishing preparation and protective finish.</p>
+        <div class="text-dd-gold font-display font-bold text-2xl">From €99</div>
+      </div>
+
+      <!-- Full -->
+      <div class="service-card rounded-2xl p-7 reveal d2">
+        <div class="w-11 h-11 rounded-xl bg-dd-gold/10 border border-dd-gold/18 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-white mb-3 tracking-wide">Full Detailing</h3>
+        <p class="text-dd-silver/65 text-sm mb-5" style="line-height:1.7;">Complete interior and exterior detailing for a fresh, premium look.</p>
+        <div class="text-dd-gold font-display font-bold text-2xl">From €179</div>
+      </div>
+
+      <!-- Paint Correction -->
+      <div class="service-card rounded-2xl p-7 reveal d1">
+        <div class="w-11 h-11 rounded-xl bg-dd-gold/10 border border-dd-gold/18 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-white mb-3 tracking-wide">Paint Correction</h3>
+        <p class="text-dd-silver/65 text-sm mb-5" style="line-height:1.7;">Light scratches, swirl marks and gloss restoration.</p>
+        <div class="text-dd-gold font-display font-bold text-2xl">From €249</div>
+      </div>
+
+      <!-- Ceramic -->
+      <div class="service-card rounded-2xl p-7 reveal d2">
+        <div class="w-11 h-11 rounded-xl bg-dd-gold/10 border border-dd-gold/18 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-white mb-3 tracking-wide">Ceramic Coating</h3>
+        <p class="text-dd-silver/65 text-sm mb-5" style="line-height:1.7;">Long-lasting paint protection and deep gloss finish.</p>
+        <div class="text-dd-gold font-display font-bold text-2xl">From €399</div>
+      </div>
+
+      <!-- Engine Bay -->
+      <div class="service-card rounded-2xl p-7 reveal d3">
+        <div class="w-11 h-11 rounded-xl bg-dd-gold/10 border border-dd-gold/18 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-white mb-3 tracking-wide">Engine Bay Cleaning</h3>
+        <p class="text-dd-silver/65 text-sm mb-5" style="line-height:1.7;">Safe engine bay cleaning and surface refresh.</p>
+        <div class="text-dd-gold font-display font-bold text-2xl">From €69</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     PACKAGES
+===================================================== -->
+<section id="packages" class="py-24 lg:py-32 bg-alt">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        Detailing <span class="gold-text">Packages</span>
+      </h2>
+      <p class="text-dd-silver max-w-sm mx-auto" style="line-height:1.7;">Choose the level of care your car needs.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 items-stretch">
+
+      <!-- Essential -->
+      <div class="pkg-card rounded-2xl p-8 flex flex-col reveal">
+        <div class="mb-8">
+          <div class="text-dd-silver/50 text-xs uppercase tracking-widest font-semibold mb-2">Essential</div>
+          <h3 class="font-display font-bold text-2xl text-white mb-1">Essential Clean</h3>
+          <p class="text-dd-silver/55 text-sm mb-6" style="line-height:1.6;">Perfect for regular maintenance and a clean everyday look.</p>
+          <span class="font-display font-bold text-5xl gold-text">€89</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Exterior hand wash
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Interior vacuum
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Dashboard &amp; plastic wipe-down
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Window cleaning
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Tire shine
+          </li>
+        </ul>
+        <a href="#booking" class="btn-outline text-center py-3.5 rounded-full text-sm uppercase tracking-widest">Book Essential</a>
+      </div>
+
+      <!-- Premium (featured) -->
+      <div class="pkg-card featured rounded-2xl p-8 flex flex-col relative reveal d1"
+           style="margin-top:-18px;margin-bottom:-18px;">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+          <span class="btn-gold px-5 py-1 rounded-full text-xs font-bold uppercase tracking-widest whitespace-nowrap">Most Popular</span>
+        </div>
+        <div class="mb-8 pt-2">
+          <div class="text-dd-gold text-xs uppercase tracking-widest font-semibold mb-2">Premium</div>
+          <h3 class="font-display font-bold text-2xl text-white mb-1">Premium Detail</h3>
+          <p class="text-dd-silver/55 text-sm mb-6" style="line-height:1.6;">A complete refresh for both interior and exterior.</p>
+          <span class="font-display font-bold text-5xl gold-text">€179</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full bg-dd-gold/18 border border-dd-gold/38 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Everything in Essential Clean
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full bg-dd-gold/18 border border-dd-gold/38 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Deep interior cleaning
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full bg-dd-gold/18 border border-dd-gold/38 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Seat &amp; carpet cleaning
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full bg-dd-gold/18 border border-dd-gold/38 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Exterior decontamination
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full bg-dd-gold/18 border border-dd-gold/38 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Hand wax protection
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full bg-dd-gold/18 border border-dd-gold/38 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Interior fragrance treatment
+          </li>
+        </ul>
+        <a href="#booking" class="btn-gold text-center py-3.5 rounded-full text-sm uppercase tracking-widest">Book Premium</a>
+      </div>
+
+      <!-- Signature -->
+      <div class="pkg-card rounded-2xl p-8 flex flex-col reveal d2">
+        <div class="mb-8">
+          <div class="text-dd-silver/50 text-xs uppercase tracking-widest font-semibold mb-2">Signature</div>
+          <h3 class="font-display font-bold text-2xl text-white mb-1">Signature Protection</h3>
+          <p class="text-dd-silver/55 text-sm mb-6" style="line-height:1.6;">For owners who want deep gloss and long-lasting protection.</p>
+          <span class="font-display font-bold text-5xl gold-text">€399</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Everything in Premium Detail
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>One-step paint correction
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Ceramic coating
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Leather conditioning
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Premium tire &amp; trim dressing
+          </li>
+          <li class="flex items-center gap-3 text-sm text-dd-silver">
+            <span class="w-4 h-4 rounded-full border border-dd-gold/35 flex items-center justify-center shrink-0">
+              <svg width="7" height="7" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l2 2L6.5 2" stroke="#C89B5A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>Final inspection
+          </li>
+        </ul>
+        <a href="#booking" class="btn-outline text-center py-3.5 rounded-full text-sm uppercase tracking-widest">Book Signature</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     BEFORE / AFTER
+===================================================== -->
+<section id="results" class="py-24 lg:py-32 bg-dd-black">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        Before &amp; After <span class="gold-text">Results</span>
+      </h2>
+      <p class="text-dd-silver max-w-sm mx-auto" style="line-height:1.7;">See the difference professional detailing makes.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- BA 1: Interior -->
+      <div class="reveal">
+        <div class="text-xs font-bold uppercase tracking-widest text-dd-gold/55 mb-3 text-center">Interior Cleaning</div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="relative">
+            <span class="absolute top-2 left-2 z-10 bg-black/65 text-white text-xs px-2 py-0.5 rounded font-medium">Before</span>
+            <img src="https://placehold.co/300x240/0e0e0e/333333?text=BEFORE" alt="Interior before"
+                 class="w-full rounded-xl object-cover" style="aspect-ratio:5/4;"
+                 data-replace="ba-interior-before">
+          </div>
+          <div class="relative">
+            <span class="absolute top-2 left-2 z-10 bg-dd-gold/80 text-black text-xs px-2 py-0.5 rounded font-bold">After</span>
+            <img src="https://placehold.co/300x240/1a1200/C89B5A?text=AFTER" alt="Interior after"
+                 class="w-full rounded-xl object-cover" style="aspect-ratio:5/4;"
+                 data-replace="ba-interior-after">
+          </div>
+        </div>
+        <p class="text-dd-silver/45 text-xs text-center mt-3">Deep interior cleaning &amp; refresh</p>
+      </div>
+
+      <!-- BA 2: Exterior -->
+      <div class="reveal d1">
+        <div class="text-xs font-bold uppercase tracking-widest text-dd-gold/55 mb-3 text-center">Exterior Gloss</div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="relative">
+            <span class="absolute top-2 left-2 z-10 bg-black/65 text-white text-xs px-2 py-0.5 rounded font-medium">Before</span>
+            <img src="https://placehold.co/300x240/0e0e0e/333333?text=BEFORE" alt="Exterior before"
+                 class="w-full rounded-xl object-cover" style="aspect-ratio:5/4;"
+                 data-replace="ba-exterior-before">
+          </div>
+          <div class="relative">
+            <span class="absolute top-2 left-2 z-10 bg-dd-gold/80 text-black text-xs px-2 py-0.5 rounded font-bold">After</span>
+            <img src="https://placehold.co/300x240/1a1200/C89B5A?text=AFTER" alt="Exterior after"
+                 class="w-full rounded-xl object-cover" style="aspect-ratio:5/4;"
+                 data-replace="ba-exterior-after">
+          </div>
+        </div>
+        <p class="text-dd-silver/45 text-xs text-center mt-3">Paint correction &amp; polishing</p>
+      </div>
+
+      <!-- BA 3: Wheels -->
+      <div class="reveal d2">
+        <div class="text-xs font-bold uppercase tracking-widest text-dd-gold/55 mb-3 text-center">Wheels &amp; Details</div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="relative">
+            <span class="absolute top-2 left-2 z-10 bg-black/65 text-white text-xs px-2 py-0.5 rounded font-medium">Before</span>
+            <img src="https://placehold.co/300x240/0e0e0e/333333?text=BEFORE" alt="Wheels before"
+                 class="w-full rounded-xl object-cover" style="aspect-ratio:5/4;"
+                 data-replace="ba-wheels-before">
+          </div>
+          <div class="relative">
+            <span class="absolute top-2 left-2 z-10 bg-dd-gold/80 text-black text-xs px-2 py-0.5 rounded font-bold">After</span>
+            <img src="https://placehold.co/300x240/1a1200/C89B5A?text=AFTER" alt="Wheels after"
+                 class="w-full rounded-xl object-cover" style="aspect-ratio:5/4;"
+                 data-replace="ba-wheels-after">
+          </div>
+        </div>
+        <p class="text-dd-silver/45 text-xs text-center mt-3">Wheel &amp; trim restoration</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     HOW IT WORKS
+===================================================== -->
+<section id="process" class="py-24 lg:py-32 bg-alt">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        How It <span class="gold-text">Works</span>
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div class="process-step text-center reveal">
+        <div class="step-num mb-1">01</div>
+        <div class="w-14 h-14 rounded-full border border-dd-gold/28 bg-dd-gold/5 flex items-center justify-center mx-auto mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-white mb-2">Choose Your Package</h3>
+        <p class="text-dd-silver/55 text-sm" style="line-height:1.6;">Select the detailing service that fits your car.</p>
+      </div>
+
+      <div class="process-step text-center reveal d1">
+        <div class="step-num mb-1">02</div>
+        <div class="w-14 h-14 rounded-full border border-dd-gold/28 bg-dd-gold/5 flex items-center justify-center mx-auto mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-white mb-2">Book a Time</h3>
+        <p class="text-dd-silver/55 text-sm" style="line-height:1.6;">Pick a convenient date and time.</p>
+      </div>
+
+      <div class="process-step text-center reveal d2">
+        <div class="step-num mb-1">03</div>
+        <div class="w-14 h-14 rounded-full border border-dd-gold/28 bg-dd-gold/5 flex items-center justify-center mx-auto mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-white mb-2">We Detail Your Car</h3>
+        <p class="text-dd-silver/55 text-sm" style="line-height:1.6;">Our team cleans, protects and restores every detail.</p>
+      </div>
+
+      <div class="process-step text-center reveal d3">
+        <div class="step-num mb-1">04</div>
+        <div class="w-14 h-14 rounded-full border border-dd-gold/28 bg-dd-gold/5 flex items-center justify-center mx-auto mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-white mb-2">Drive Away Fresh</h3>
+        <p class="text-dd-silver/55 text-sm" style="line-height:1.6;">Enjoy a cleaner, glossier and better protected car.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     GALLERY
+===================================================== -->
+<section id="gallery" class="py-24 lg:py-32 bg-dd-black">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        <span class="gold-text">Gallery</span>
+      </h2>
+      <p class="text-dd-silver max-w-sm mx-auto" style="line-height:1.7;">Clean lines, deep gloss and perfect details.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      <div class="gallery-item reveal" style="aspect-ratio:4/3;">
+        <img src="https://placehold.co/600x450/111111/C89B5A?text=LUXURY+EXTERIOR" alt="Luxury car exterior" data-replace="gallery-1">
+      </div>
+      <div class="gallery-item reveal d1" style="aspect-ratio:4/3;">
+        <img src="https://placehold.co/600x450/0f0f0f/B8B8B8?text=DETAILING+FOAM" alt="Detailing foam" data-replace="gallery-2">
+      </div>
+      <div class="gallery-item reveal d2" style="aspect-ratio:4/3;">
+        <img src="https://placehold.co/600x450/111111/E6D3B1?text=INTERIOR+LEATHER" alt="Interior leather" data-replace="gallery-3">
+      </div>
+      <div class="gallery-item reveal d1" style="aspect-ratio:4/3;">
+        <img src="https://placehold.co/600x450/0f0f0f/C89B5A?text=POLISHING" alt="Polishing" data-replace="gallery-4">
+      </div>
+      <div class="gallery-item reveal d2" style="aspect-ratio:4/3;">
+        <img src="https://placehold.co/600x450/111111/E6D3B1?text=CERAMIC+COATING" alt="Ceramic coating" data-replace="gallery-5">
+      </div>
+      <div class="gallery-item reveal d3" style="aspect-ratio:4/3;">
+        <img src="https://placehold.co/600x450/0f0f0f/B8B8B8?text=WHEELS" alt="Wheels" data-replace="gallery-6">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     REVIEWS
+===================================================== -->
+<section id="reviews" class="py-24 lg:py-32 bg-alt">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        What Customers <span class="gold-text">Say</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="review-card rounded-2xl p-7 reveal">
+        <div class="flex gap-1 mb-5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p class="text-white/85 text-base italic mb-6" style="line-height:1.7;">"Car looks better than when I bought it."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-dd-gold/18 flex items-center justify-center">
+            <span class="text-dd-gold font-display font-bold text-sm">M</span>
+          </div>
+          <div>
+            <div class="text-white font-semibold text-sm">Mark</div>
+            <div class="text-dd-silver/45 text-xs">BMW owner</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card rounded-2xl p-7 reveal d1">
+        <div class="flex gap-1 mb-5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p class="text-white/85 text-base italic mb-6" style="line-height:1.7;">"Interior cleaning was perfect. Every detail was handled."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-dd-gold/18 flex items-center justify-center">
+            <span class="text-dd-gold font-display font-bold text-sm">A</span>
+          </div>
+          <div>
+            <div class="text-white font-semibold text-sm">Anna</div>
+            <div class="text-dd-silver/45 text-xs">Audi owner</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card rounded-2xl p-7 reveal d2">
+        <div class="flex gap-1 mb-5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#C89B5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p class="text-white/85 text-base italic mb-6" style="line-height:1.7;">"The ceramic coating finish is amazing."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-dd-gold/18 flex items-center justify-center">
+            <span class="text-dd-gold font-display font-bold text-sm">D</span>
+          </div>
+          <div>
+            <div class="text-white font-semibold text-sm">David</div>
+            <div class="text-dd-silver/45 text-xs">Mercedes owner</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     BOOKING CTA
+===================================================== -->
+<section id="booking" class="py-24 lg:py-32 bg-dd-black relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:radial-gradient(ellipse at 50% 50%,rgba(200,155,90,0.04) 0%,transparent 65%);"></div>
+
+  <div class="max-w-3xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        Ready to Refresh <span class="gold-text">Your Car?</span>
+      </h2>
+      <p class="text-dd-silver" style="line-height:1.7;">Book your detailing appointment and give your car the care it deserves.</p>
+    </div>
+
+    <form id="booking-form" class="bg-dd-graphite rounded-2xl p-7 lg:p-10 border border-white/5 reveal d1"
+          onsubmit="handleBooking(event)">
+      <div class="grid sm:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label class="text-dd-silver/50 text-xs uppercase tracking-wider font-semibold mb-2 block">Name</label>
+          <input type="text" placeholder="Your name" class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+        </div>
+        <div>
+          <label class="text-dd-silver/50 text-xs uppercase tracking-wider font-semibold mb-2 block">Phone</label>
+          <input type="tel" placeholder="+371 xxxx xxxx" class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+        </div>
+        <div>
+          <label class="text-dd-silver/50 text-xs uppercase tracking-wider font-semibold mb-2 block">Email</label>
+          <input type="email" placeholder="your@email.com" class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+        </div>
+        <div>
+          <label class="text-dd-silver/50 text-xs uppercase tracking-wider font-semibold mb-2 block">Car Model</label>
+          <input type="text" placeholder="e.g. BMW 5 Series" class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+        </div>
+        <div>
+          <label class="text-dd-silver/50 text-xs uppercase tracking-wider font-semibold mb-2 block">Service Package</label>
+          <select class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+            <option value="" disabled selected>Choose a package</option>
+            <option value="essential">Essential Clean — €89</option>
+            <option value="premium">Premium Detail — €179</option>
+            <option value="signature">Signature Protection — €399</option>
+            <option value="interior">Interior Detailing — from €89</option>
+            <option value="exterior">Exterior Detailing — from €99</option>
+            <option value="paint">Paint Correction — from €249</option>
+            <option value="ceramic">Ceramic Coating — from €399</option>
+            <option value="engine">Engine Bay Cleaning — from €69</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-dd-silver/50 text-xs uppercase tracking-wider font-semibold mb-2 block">Preferred Date</label>
+          <input type="date" class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+        </div>
+      </div>
+      <div class="mb-6">
+        <label class="text-dd-silver/50 text-xs uppercase tracking-wider font-semibold mb-2 block">Message</label>
+        <textarea placeholder="Any additional notes..." rows="4" class="form-input w-full px-4 py-3 rounded-xl text-sm resize-none"></textarea>
+      </div>
+      <button id="submit-btn" type="submit" class="btn-gold w-full py-4 rounded-full font-bold uppercase tracking-widest text-sm">
+        Book Detailing
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     CONTACT
+===================================================== -->
+<section id="contact" class="py-24 lg:py-32 bg-alt">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="gold-line mx-auto mb-6"></div>
+      <h2 class="font-display font-bold text-4xl lg:text-5xl mb-4" style="letter-spacing:-0.02em;">
+        Visit <span class="gold-text">Dessert Deagle</span>
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+      <!-- Info -->
+      <div class="reveal">
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-dd-gold/10 border border-dd-gold/20 flex items-center justify-center shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-dd-silver/45 text-xs uppercase tracking-wider mb-1">Address</div>
+              <div class="text-white text-sm">18 Auto Street, Riga, Latvia</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-dd-gold/10 border border-dd-gold/20 flex items-center justify-center shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-dd-silver/45 text-xs uppercase tracking-wider mb-1">Phone</div>
+              <div class="text-white text-sm">+371 2000 0000</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-dd-gold/10 border border-dd-gold/20 flex items-center justify-center shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-dd-silver/45 text-xs uppercase tracking-wider mb-1">Email</div>
+              <div class="text-white text-sm">hello@dessertdeagle.com</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div class="mt-8 bg-dd-graphite rounded-2xl p-6 border border-white/5">
+          <h3 class="font-display font-semibold text-base text-dd-gold mb-4 uppercase tracking-wide">Opening Hours</h3>
+          <div class="space-y-3">
+            <div class="flex justify-between text-sm">
+              <span class="text-dd-silver/60">Monday – Friday</span>
+              <span class="text-white font-medium">9:00 – 19:00</span>
+            </div>
+            <div class="h-px bg-white/5"></div>
+            <div class="flex justify-between text-sm">
+              <span class="text-dd-silver/60">Saturday</span>
+              <span class="text-white font-medium">10:00 – 17:00</span>
+            </div>
+            <div class="h-px bg-white/5"></div>
+            <div class="flex justify-between text-sm">
+              <span class="text-dd-silver/60">Sunday</span>
+              <span class="text-dd-silver/35">Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map placeholder -->
+      <div class="reveal d1">
+        <div class="rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center"
+             style="height:380px;background:#161616;">
+          <div class="text-center px-8">
+            <div class="w-14 h-14 rounded-full bg-dd-gold/10 border border-dd-gold/20 flex items-center justify-center mx-auto mb-5">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B5A" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="text-dd-silver/55 text-sm mb-1">18 Auto Street, Riga</div>
+            <div class="text-dd-silver/30 text-xs mb-5">Latvia</div>
+            <div class="inline-block text-dd-gold/40 text-xs border border-dd-gold/18 rounded-lg px-4 py-2">
+              Google Maps integration available
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     FOOTER
+===================================================== -->
+<footer class="bg-dd-black border-t border-white/[0.04] py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+
+      <!-- Brand -->
+      <div>
+        <a href="#home" class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-full border border-dd-gold/55 flex items-center justify-center">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L4 7v10l8 5 8-5V7z" stroke="#C89B5A" stroke-width="1.5"/>
+              <path d="M12 2v20M4 7l8 5 8-5" stroke="#C89B5A" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <span class="font-display font-bold text-lg tracking-widest">DESSERT <span class="text-dd-gold">DEAGLE</span></span>
+        </a>
+        <p class="text-dd-silver/45 text-sm" style="line-height:1.7;">Premium auto detailing and paint protection.</p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="text-dd-silver/35 text-xs uppercase tracking-widest font-semibold mb-4">Navigation</h4>
+        <div class="space-y-2.5">
+          <a href="#services"  class="block text-dd-silver/55 hover:text-dd-gold transition-colors text-sm">Services</a>
+          <a href="#packages"  class="block text-dd-silver/55 hover:text-dd-gold transition-colors text-sm">Packages</a>
+          <a href="#gallery"   class="block text-dd-silver/55 hover:text-dd-gold transition-colors text-sm">Gallery</a>
+          <a href="#contact"   class="block text-dd-silver/55 hover:text-dd-gold transition-colors text-sm">Contact</a>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <h4 class="text-dd-silver/35 text-xs uppercase tracking-widest font-semibold mb-4">Follow Us</h4>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-full bg-dd-charcoal border border-white/8 flex items-center justify-center hover:border-dd-gold/38 hover:bg-dd-gold/10 transition-all duration-200" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8B8B8" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="#B8B8B8" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-dd-charcoal border border-white/8 flex items-center justify-center hover:border-dd-gold/38 hover:bg-dd-gold/10 transition-all duration-200" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8B8B8" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-dd-charcoal border border-white/8 flex items-center justify-center hover:border-dd-gold/38 hover:bg-dd-gold/10 transition-all duration-200" aria-label="TikTok">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#B8B8B8">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1-.07z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.04] pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <span class="text-dd-silver/25 text-xs">© 2026 Dessert Deagle. All rights reserved.</span>
+      <div class="w-16 h-px" style="background:linear-gradient(90deg,transparent,rgba(200,155,90,0.3),transparent);"></div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ====================================================
+     JAVASCRIPT
+===================================================== -->
+<script>
+  // ----- Sticky header -----
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ----- Mobile menu -----
+  const ham      = document.getElementById('ham');
+  const mobMenu  = document.getElementById('mob-menu');
+  const hb1      = document.getElementById('hb1');
+  const hb2      = document.getElementById('hb2');
+  const hb3      = document.getElementById('hb3');
+  let open = false;
+
+  ham.addEventListener('click', () => {
+    open = !open;
+    mobMenu.classList.toggle('open', open);
+    hb1.style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
+    hb2.style.opacity   = open ? '0' : '';
+    hb3.style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  });
+
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+    open = false;
+    mobMenu.classList.remove('open');
+    hb1.style.transform = hb3.style.transform = '';
+    hb2.style.opacity = '';
+  }));
+
+  // ----- Scroll reveal -----
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -35px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ----- Booking form -----
+  function handleBooking(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = '✓ Booking Confirmed!';
+    btn.style.background = 'linear-gradient(135deg,#2d6a4f,#52b788)';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Book Detailing';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3500);
+  }
+</script>
+
+</body>
+</html>
